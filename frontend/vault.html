@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Vault - Arcania</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
+</head>
+<body class="app-bg">
+
+    <main class="main-content">
+        <header class="app-header">
+            <h1>Your Vault</h1>
+            <div id="vault-header-actions" class="vault-header-actions">
+                </div>
+        </header>
+
+        <div class="vault-sections-container" id="vault-sections-container">
+            </div>
+    </main>
+
+    <div id="entry-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2 id="modal-title">New Vault Entry</h2>
+            <form id="entry-form">
+                <div class="form-inner-box">
+                    <input type="hidden" id="entry-id">
+                    <div class="form-group">
+                        <label for="entry-url">Website URL</label>
+                        <input type="url" id="entry-url" placeholder="https://example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="entry-username">Username</label>
+                        <input type="text" id="entry-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="entry-email">Email</label>
+                        <input type="email" id="entry-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="entry-password">Password</label>
+                        <input type="password" id="entry-password" required>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="discard-btn" class="btn btn-secondary">Discard</button>
+                    <button type="submit" id="save-btn" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="timeout-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Session Timed Out</h2>
+            <p>For your security, you have been logged out due to inactivity. The vault is now locked.</p>
+            <div class="modal-actions">
+                <a href="index.html" class="btn btn-primary">Return to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="vault.html" class="nav-tab active" data-tab="vault">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <span>Vault</span>
+        </a>
+        <a href="generator.html" class="nav-tab" data-tab="generator">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 13-2.5 2.5a4 4 0 0 1-5.66 0l-5-5a4 4 0 0 1 0-5.66l2.5-2.5a4 4 0 0 1 5.66 0l5 5a4 4 0 0 1 0 5.66z"/><path d="m9 11 6 6"/><path d="m12 8 1.5 1.5"/></svg>
+            <span>Generator</span>
+        </a>
+        <a href="settings.html" class="nav-tab" data-tab="settings">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Settings</span>
+        </a>
+    </nav>
+    
+    <script src="encryption.js"></script>
+    <script src="vault.js"></script>
+    <script src="navigation.js"></script>
+    <script src="session.js"></script>
+</body>
+</html>

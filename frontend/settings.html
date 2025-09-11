@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Arcania</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
+</head>
+<body class="app-bg">
+
+    <main class="main-content">
+        <header class="app-header">
+            <h1>Settings</h1>
+        </header>
+        
+        <div class="settings-container">
+            <div class="settings-card">
+                <h3>User Profile</h3>
+                <div class="profile-details">
+                    <div class="profile-photo-container">
+                        <img src="https://placehold.co/100x100/4A90E2/FFFFFF?text=A" alt="User Profile Photo" id="profile-photo">
+                        <button id="upload-photo-btn" class="btn btn-secondary btn-small">Upload</button>
+                    </div>
+                    <div class="profile-info">
+                        <p><strong>Email:</strong> <span id="profile-email">user@example.com</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h3>Security Settings</h3>
+                <div class="session-timeout-container">
+                    <p>Auto-logout after inactivity</p>
+                    <select id="session-timeout-select" class="session-timeout-select">
+                        <option value="5">5 minutes</option>
+                        <option value="10" selected>10 minutes</option>
+                        <option value="30">30 minutes</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h3>Theme</h3>
+                <div class="theme-toggle-container">
+                    <p>Switch between light and dark themes.</p>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-card danger-zone">
+                <h3>Account Management</h3>
+                <div class="account-action">
+                    <p>Permanently delete your account and all associated data. This action cannot be undone.</p>
+                    <button id="delete-account-btn" class="btn btn-danger">Delete Account</button>
+                </div>
+                <div class="account-action" style="margin-top: 1rem; border-top: 1px solid var(--neutral-light-gray); padding-top: 1rem;">
+                    <p>Log out of your Arcania session on this device.</p>
+                    <button id="logout-btn" class="btn btn-secondary">Logout</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="timeout-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Session Timed Out</h2>
+            <p>For your security, you have been logged out due to inactivity. The vault is now locked.</p>
+            <div class="modal-actions">
+                <a href="index.html" class="btn btn-primary">Return to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="vault.html" class="nav-tab" data-tab="vault">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <span>Vault</span>
+        </a>
+        <a href="generator.html" class="nav-tab" data-tab="generator">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 13-2.5 2.5a4 4 0 0 1-5.66 0l-5-5a4 4 0 0 1 0-5.66l2.5-2.5a4 4 0 0 1 5.66 0l5 5a4 4 0 0 1 0 5.66z"/><path d="m9 11 6 6"/><path d="m12 8 1.5 1.5"/></svg>
+            <span>Generator</span>
+        </a>
+        <a href="settings.html" class="nav-tab active" data-tab="settings">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Settings</span>
+        </a>
+    </nav>
+    
+    <script src="settings.js"></script>
+    <script src="navigation.js"></script>
+    <script src="session.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcania Password Vault - Your Digital Fortress</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
+</head>
+<body class="homepage-bg">
+
+    <header class="main-header">
+        <nav class="main-nav">
+            <div class="logo">
+                <span class="logo-icon">🛡️</span>
+                Arcania
+            </div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#features" class="nav-link">Why Choose</a>
+                <a href="#encryption" class="nav-link">Encryption</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="signup.html" class="btn btn-secondary" id="signup-btn">Sign Up</a>
+                <a href="login.html" class="btn btn-primary" id="login-btn">Login</a>
+                <div class="user-profile-icon" id="user-profile-icon" style="display: none;"></div>
+                
+                <div class="profile-dropdown" id="profile-dropdown" style="display: none;">
+                    <div class="profile-dropdown-header">
+                        <p id="dropdown-email" class="profile-dropdown-email"></p>
+                    </div>
+                    <div class="profile-dropdown-theme-toggle">
+                        <span>Theme</span>
+                        <label class="switch">
+                            <input type="checkbox" id="header-theme-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <button id="dropdown-logout-btn" class="profile-dropdown-logout">Logout</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section fade-in-up">
+            <div class="hero-content">
+                <h1 class="hero-tagline">Enter the Digital Fortress</h1>
+                <p class="hero-subtitle">Step into your digital fortress where passwords become legends and security reigns supreme. Experience zero-knowledge architecture with the mystique of ancient vaults.</p>
+                <button class="btn btn-primary btn-large" id="hero-cta-btn">Start the Arcania</button>
+            </div>
+            <div class="hero-visual">
+                 <div class="security-badge">
+                    <div class="badge-content">
+                        <span class="shield">🛡️</span>
+                        <span>Zero-Knowledge Fortress</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="homepage-generator-section fade-in-up">
+            <h2>Try Our Password Generator</h2>
+            <p class="story-narrative">Experience the power of Arcania's cryptographically secure password generation. Perfect for creating uncrackable passwords instantly.</p>
+            <div class="homepage-generator-card">
+                <div class="homepage-generator-output">
+                    <input type="text" id="homepage-generated-output" readonly value="SecurePass123!@#">
+                    <button id="homepage-copy-btn" class="icon-btn" title="Copy to Clipboard">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+                <div class="homepage-generator-controls">
+                    <button id="homepage-generate-btn" class="btn btn-primary">Generate New Password</button>
+                    <a href="generator.html" class="btn btn-secondary" id="full-generator-link">Full Generator</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section fade-in-up">
+            <h2>The Story of Arcania</h2>
+            <p class="story-narrative">
+                It started as a late-night thought in a college dorm room. Surrounded by news of data breaches and privacy concerns, a computer science student wondered, "Why is something as personal as our digital keys in the hands of corporations? Why can't we have a vault that even its creators can't open?"
+                <br><br>
+                This question sparked an obsession: to build a password manager that was fully open-source, completely client-side, and fundamentally trustworthy. The project was named **Arcania**, inspired by the word 'arcane'—meaning understood by few; mysterious or secret. Arcania was built to protect the modern world's most arcane secrets: our passwords. It's more than a tool; it's a philosophy. Your data is yours alone, protected within a fortress of your own making.
+            </p>
+        </section>
+
+        <section id="features" class="features-section fade-in-up">
+            <h2>Why Choose Arcania?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">📖</div>
+                    <h3>Open Source & Transparent</h3>
+                    <p>Our code is publicly available for review, ensuring complete transparency and trust in our security model.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏰</div>
+                    <h3>Zero-Knowledge Fortress</h3>
+                    <p>Your master password never leaves your device. Only you can ever decrypt your vault. We can't see your data, even if we wanted to.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Powerful Generator</h3>
+                    <p>Create uncrackable passwords, memorable passphrases, and unique usernames instantly with our built-in generator.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="encryption" class="encryption-section fade-in-up">
+            <h2>Fortress-Level Security</h2>
+            <div class="encryption-grid">
+                <div class="encryption-card">
+                    <div class="encryption-icon">🔑</div>
+                    <h3>PBKDF2 Key Derivation</h3>
+                    <p>We use 100,000+ iterations to turn your master password into a formidable encryption key, making it resistant to brute-force attacks.</p>
+                </div>
+                <div class="encryption-card">
+                    <div class="encryption-icon">🛡️</div>
+                    <h3>AES-256 Encryption</h3>
+                    <p>The same symmetric encryption standard trusted by governments and banks worldwide to protect top-secret information.</p>
+                </div>
+                <div class="encryption-card">
+                    <div class="encryption-icon">⏳</div>
+                    <h3>Uncrackable by Force</h3>
+                    <p>It would take the world's fastest supercomputers **billions of years** to brute-force a single password protected by our protocol.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section fade-in-up">
+            <h2>Trusted by Security Experts</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-track">
+                    <div class="testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Alex">
+                            <div class="testimonial-info">
+                                <cite>Alex, Software Developer</cite>
+                                <div class="star-rating">4.8 ⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <blockquote>"Finally, a password manager I can trust completely. The zero-knowledge approach gives me peace of mind."</blockquote>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b829?w=60&h=60&fit=crop&crop=face" alt="Maria">
+                            <div class="testimonial-info">
+                                <cite>Maria, Designer</cite>
+                                <div class="star-rating">5.0 ⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <blockquote>"The interface is beautiful and the security is unmatched. Arcania makes password management feel magical."</blockquote>
+                    </div>
+                     <div class="testimonial">
+                         <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" alt="David">
+                            <div class="testimonial-info">
+                                <cite>David, Privacy Advocate</cite>
+                                <div class="star-rating">4.6 ⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <blockquote>"Open source and zero-knowledge—exactly what I was looking for. The encryption is military-grade."</blockquote>
+                    </div>
+                     <div class="testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="Sarah">
+                            <div class="testimonial-info">
+                                <cite>Sarah, IT Consultant</cite>
+                                <div class="star-rating">4.3 ⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <blockquote>"Simple, clean, and incredibly secure. I recommend Arcania to all my colleagues."</blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="logo">
+                <span class="logo-icon">🛡️</span>
+                Arcania
+            </div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#features">Why Choose</a>
+                <a href="#encryption">Encryption</a>
+            </div>
+            <p class="footer-copy">&copy; 2025 Arcania Password Vault. Your digital fortress awaits.</p>
+        </div>
+    </footer>
+
+    <div id="master-password-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Enter Master Password</h2>
+            <p>Your master password is required to unlock your vault.</p>
+            <input type="password" id="master-password-input" placeholder="Your Master Password">
+            <div class="modal-actions">
+                <button id="unlock-vault-btn" class="btn btn-primary">Unlock</button>
+                <button id="cancel-unlock-btn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="encryption.js"></script>
+    <script src="homepage.js"></script>
+</body>
+</html>

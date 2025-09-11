@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator - Arcania</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
+</head>
+<body class="app-bg">
+
+    <main class="main-content">
+        <header class="app-header">
+            <h1>Generator</h1>
+        </header>
+
+        <div class="generator-card">
+            <div class="generator-type-selector">
+                <button class="type-btn active" data-type="password">Password</button>
+                <button class="type-btn" data-type="passphrase">Passphrase</button>
+                <button class="type-btn" data-type="username">Username</button>
+            </div>
+
+            <div class="generated-output-container">
+                <input type="text" id="generated-output" readonly>
+                <button id="regenerate-btn" class="regenerate-btn" title="Generate New">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                </button>
+                <button id="copy-output-btn" class="icon-btn" title="Copy to Clipboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+            </div>
+
+            <div class="generator-options">
+                <div id="password-options" class="options-panel">
+                    <div class="option-group">
+                        <label for="length">Length: <span id="length-value">16</span></label>
+                        <input type="range" id="length" min="8" max="64" value="16" class="slider">
+                    </div>
+                    <div class="option-group checkbox-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="include-uppercase" checked>
+                            <span>Uppercase (A-Z)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="include-lowercase" checked>
+                            <span>Lowercase (a-z)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="include-numbers" checked>
+                            <span>Numbers (0-9)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="include-symbols" checked>
+                            <span>Symbols (!@#$)</span>
+                        </label>
+                    </div>
+                    
+                    <!-- New minimum requirements section -->
+                    <div class="option-group min-requirements-section">
+                        <div class="min-requirement-item">
+                            <label for="min-numbers" class="min-requirement-label">
+                                Minimum Numbers: <span id="min-numbers-value">1</span>
+                            </label>
+                            <input type="range" id="min-numbers" min="0" max="10" value="1" class="min-requirement-slider">
+                        </div>
+                        <div class="min-requirement-item">
+                            <label for="min-symbols" class="min-requirement-label">
+                                Minimum Symbols: <span id="min-symbols-value">1</span>
+                            </label>
+                            <input type="range" id="min-symbols" min="0" max="10" value="1" class="min-requirement-slider">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="passphrase-options" class="options-panel" style="display: none;">
+                    <div class="option-group">
+                        <label for="word-count">Word Count: <span id="word-count-value">4</span></label>
+                        <input type="range" id="word-count" min="3" max="10" value="4" class="slider">
+                    </div>
+                    <div class="option-group">
+                        <label for="separator">Separator</label>
+                        <input type="text" id="separator" value="-" class="short-input">
+                    </div>
+                    <div class="option-group checkbox-grid">
+                         <label class="checkbox-label">
+                            <input type="checkbox" id="capitalize">
+                            <span>Capitalize</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="username-options" class="options-panel" style="display: none;">
+                     <p class="option-description">Generates a random, memorable username.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="timeout-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Session Timed Out</h2>
+            <p>For your security, you have been logged out due to inactivity. The vault is now locked.</p>
+            <div class="modal-actions">
+                <a href="index.html" class="btn btn-primary">Return to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="vault.html" class="nav-tab" data-tab="vault">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <span>Vault</span>
+        </a>
+        <a href="generator.html" class="nav-tab active" data-tab="generator">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 13-2.5 2.5a4 4 0 0 1-5.66 0l-5-5a4 4 0 0 1 0-5.66l2.5-2.5a4 4 0 0 1 5.66 0l5 5a4 4 0 0 1 0 5.66z"/><path d="m9 11 6 6"/><path d="m12 8 1.5 1.5"/></svg>
+            <span>Generator</span>
+        </a>
+        <a href="settings.html" class="nav-tab" data-tab="settings">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82-.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Settings</span>
+        </a>
+    </nav>
+    
+    <script src="generator.js"></script>
+    <script src="navigation.js"></script>
+    <script src="session.js"></script>
+</body>
+</html>
