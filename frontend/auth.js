@@ -40,6 +40,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (signupForm) signupForm.addEventListener("submit", handleSignup);
     if (loginForm) loginForm.addEventListener("submit", handleLogin);
+
+    // Password strength event listeners
+    const signupPassword = document.getElementById('signup-password');
+    const masterPassword = document.getElementById('master-password');
+
+    if (signupPassword) {
+        signupPassword.addEventListener('input', function() {
+            updatePasswordStrength(this.value, 'password-strength-fill', 'password-strength-text', this);
+        });
+    }
+
+    if (masterPassword) {
+        masterPassword.addEventListener('input', function() {
+            updatePasswordStrength(this.value, 'master-strength-fill', 'master-strength-text', this);
+        });
+    }
 });
 
 // ============================
@@ -156,6 +172,64 @@ async function handleLogin(e) {
     } catch (err) {
         console.error("Login error:", err);
         showNotification("An error occurred during login. Please try again.", "error");
+    }
+}
+
+// ============================
+// Password Strength Utilities
+// ============================
+function checkPasswordStrength(password) {
+    const requirements = {
+        length: password.length >= 8,
+        uppercase: /[A-Z]/.test(password),
+        lowercase: /[a-z]/.test(password),
+        number: /\d/.test(password),
+        special: /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)
+    };
+    const metRequirements = Object.values(requirements).filter(Boolean).length;
+    return { requirements, strength: metRequirements };
+}
+
+function updatePasswordStrength(password, fillId, textId, inputElement) {
+    const { requirements, strength } = checkPasswordStrength(password);
+    const fillElement = document.getElementById(fillId);
+    const textElement = document.getElementById(textId);
+
+    // Update strength bar
+    const percentage = (strength / 5) * 100;
+    fillElement.style.width = percentage + '%';
+
+    // Update colors and text based on strength
+    if (strength === 0) {
+        fillElement.className = 'strength-fill';
+        textElement.textContent = 'Enter password';
+        textElement.className = 'strength-text';
+    } else if (strength < 3) {
+        fillElement.className = 'strength-fill weak';
+        textElement.textContent = 'Weak';
+        textElement.className = 'strength-text weak';
+    } else if (strength < 5) {
+        fillElement.className = 'strength-fill medium';
+        textElement.textContent = 'Medium';
+        textElement.className = 'strength-text medium';
+    } else {
+        fillElement.className = 'strength-fill strong';
+        textElement.textContent = 'Strong';
+        textElement.className = 'strength-text strong';
+    }
+
+    // Set browser-native validation
+    if (password.length > 0 && strength < 5) {
+        const missing = [];
+        if (!requirements.length) missing.push('at least 8 characters');
+        if (!requirements.uppercase) missing.push('uppercase letter');
+        if (!requirements.lowercase) missing.push('lowercase letter');
+        if (!requirements.number) missing.push('number');
+        if (!requirements.special) missing.push('special character');
+
+        inputElement.setCustomValidity(`Password must contain: ${missing.join(', ')}`);
+    } else {
+        inputElement.setCustomValidity('');
     }
 }
 

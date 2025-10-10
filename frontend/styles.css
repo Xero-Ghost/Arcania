@@ -20,9 +20,11 @@
     --text-dark: #2C3E50;
     --text-light: #FFFFFF;
     --text-muted: #6B7280;
+    --text-secondary: #6B7280;
 
     /* UI Elements */
     --border-radius: 12px;
+    --border-color: #ccc;
     --soft-shadow: 0 8px 24px rgba(44, 62, 80, 0.1);
     --subtle-shadow: 0 4px 12px rgba(44, 62, 80, 0.05);
 }
@@ -33,6 +35,8 @@ html[data-theme='dark'] {
     --neutral-light-gray: #2d2d2d;
     --text-dark: #f0f0f0;
     --text-muted: #a0a0a0;
+    --text-secondary: #a0a0a0;
+    --border-color: #3d3d3d;
     --soft-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     --subtle-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
@@ -1288,4 +1292,60 @@ html[data-theme='dark'] .confirmation-modal {
     gap: 1rem;
     justify-content: center;
     margin-top: 1.5rem;
+}
+
+/* Password Strength Styles */
+.password-strength {
+    margin-top: 0.5rem;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--border-color);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.25rem;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    background-color: #ccc;
+}
+
+.strength-fill.weak {
+    background-color: #e74c3c;
+}
+
+.strength-fill.medium {
+    background-color: #f39c12;
+}
+
+.strength-fill.strong {
+    background-color: #27ae60;
+}
+
+.strength-text {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.strength-text.weak {
+    color: #e74c3c;
+}
+
+.strength-text.medium {
+    color: #f39c12;
+}
+
+.strength-text.strong {
+    color: #27ae60;
+}
+
+.password-error {
+    display: none;
+    color: #e74c3c;
+    font-size: 0.75rem;
 }
