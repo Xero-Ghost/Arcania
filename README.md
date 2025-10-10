@@ -33,9 +33,9 @@ Generator Module:
 Create random, customizable passwords, passphrases, and usernames with customizaion controls.
 
 🛠️ Tech Stack
-Frontend = HTML, CSS, JavaScript
-Cryptography =	Web Crypto API (PBKDF2, AES-GCM)
-Backend =	Flask (Python), SQLAlchemy, CORS
-Database =	MySQL
-Hosting	= Frontend: Vercel
-          Backend: PythonAnywhere
+Frontend = HTML, CSS, JavaScript <br>
+Cryptography =	Web Crypto API (PBKDF2, AES-GCM) <br>
+Backend =	Flask (Python), SQLAlchemy, CORS <br>
+Database =	MySQL <br>
+Hosting	= Frontend: Vercel <br>
+            Backend: PythonAnywhere <br>
