@@ -1349,3 +1349,26 @@ html[data-theme='dark'] .confirmation-modal {
     color: #e74c3c;
     font-size: 0.75rem;
 }
+
+.generator-meme-image {
+    position: absolute;
+    top: 50%;
+    right: -250px;
+    transform: translateY(-50%) rotate(8deg);
+    width: 280px;
+    height: 320px;
+    background-image: url(https://cdn.cosmos.so/d4370244-51f0-4734-b8ef-00cbda7de872?format=jpeg);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.2);
+    border: 8px solid ghostwhite;
+    border-radius: 4px;
+    z-index: 100;
+    opacity: 0.9;
+}
+
+.hero-video{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
