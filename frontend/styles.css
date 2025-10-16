@@ -282,7 +282,7 @@ html[data-theme='dark'] .profile-dropdown-logout:hover {
     align-items: center;
     gap: 4rem;
     text-align: left;
-    padding: 120px 2rem;
+    padding: 40px 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -301,13 +301,7 @@ html[data-theme='dark'] .profile-dropdown-logout:hover {
     max-width: 600px;
     margin-bottom: 2.5rem;
 }
-.hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Parallax effect will be driven by JS */
-    will-change: transform;
-}
+
 .security-badge {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 24px;
@@ -329,7 +323,7 @@ html[data-theme='dark'] .profile-dropdown-logout:hover {
 
 /* Homepage Generator Section */
 .homepage-generator-section {
-    padding: 80px 2rem;
+    padding: 40px 2rem;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
@@ -1367,8 +1361,9 @@ html[data-theme='dark'] .confirmation-modal {
     opacity: 0.9;
 }
 
-.hero-video{
+.hero-video {
     width: 100%;
     height: auto;
     object-fit: cover;
+    clip-path: inset(0 5px 70px 5px round 20px);
 }
