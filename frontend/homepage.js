@@ -77,15 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // --- ENHANCEMENT: Parallax Scroll Effect ---
-    window.addEventListener('scroll', () => {
-        if (heroVisual) {
-            const scrollY = window.scrollY;
-            // Move the visual element at 30% the speed of the scroll
-            heroVisual.style.transform = `translateY(${scrollY * 0.3}px)`;
-        }
-    });
-
     // --- User Login UI Management ---
     if (loggedInUser) {
         if(signupBtn) signupBtn.style.display = 'none';
