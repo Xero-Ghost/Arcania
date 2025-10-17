@@ -1348,7 +1348,7 @@ html[data-theme='dark'] .confirmation-modal {
     position: absolute;
     top: 50%;
     right: -250px;
-    transform: translateY(-50%) rotate(8deg);
+    transform: translateY(-70%) rotate(12deg);
     width: 280px;
     height: 320px;
     background-image: url(https://cdn.cosmos.so/d4370244-51f0-4734-b8ef-00cbda7de872?format=jpeg);
@@ -1366,4 +1366,27 @@ html[data-theme='dark'] .confirmation-modal {
     height: auto;
     object-fit: cover;
     clip-path: inset(0 5px 70px 5px round 20px);
+}
+
+.generator-encryption-globe{
+    position: absolute;
+    top: 50%;
+    left: -260px;
+    transform: translateY(-5%) rotate(-18deg);
+    width: 280px;
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.2);
+    border: 8px solid ghostwhite;
+    border-radius: 4px;
+    z-index: 100;
+    opacity: 0.9;
+}
+.generator-encryption-globe video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit;
 }
